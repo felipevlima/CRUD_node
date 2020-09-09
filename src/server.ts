@@ -5,7 +5,7 @@ import Routes from './routes';
 
 const app = express();
 const uri: string =
-  'mongodb+srv://allusers:allusers123@faculdade.xjync.mongodb.net/crud?retryWrites=true&w=majority';
+  'mongodb+srv://allures:allusers123@faculdade.xjync.mongodb.net/crud?retryWrites=true&w=majority';
 
 app.use(cors());
 app.use(express.json());
