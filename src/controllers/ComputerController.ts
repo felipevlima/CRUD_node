@@ -13,7 +13,7 @@ const ComputerController = {
     const schema = Yup.object().shape({
       model: Yup.string().required(),
       ram: Yup.number().required(),
-      videoMemory: Yup.number().required(),
+      graphicCard: Yup.number().required(),
       memory: Yup.number().required(),
       processor: Yup.string().required(),
     });
@@ -22,7 +22,7 @@ const ComputerController = {
       return res.status(400).json({ error: 'Validation error' });
     }
 
-    const { model, ram, videoMemory, memory, processor } = req.body;
+    const { model, ram, graphicCard, memory, processor } = req.body;
 
     let computer = await Computer.findOne({ model });
 
@@ -30,7 +30,7 @@ const ComputerController = {
       computer = await Computer.create({
         model,
         ram,
-        videoMemory,
+        graphicCard,
         memory,
         processor,
       });
@@ -51,7 +51,7 @@ const ComputerController = {
     const schema = Yup.object().shape({
       model: Yup.string().required(),
       ram: Yup.number().required(),
-      videoMemory: Yup.number().required(),
+      graphicCard: Yup.number().required(),
       memory: Yup.number().required(),
       processor: Yup.string().required(),
     });
@@ -61,14 +61,14 @@ const ComputerController = {
     }
 
     const { id } = req.params;
-    const { model, ram, videoMemory, memory, processor } = req.body;
+    const { model, ram, graphicCard, memory, processor } = req.body;
 
     await Computer.findByIdAndUpdate(
       { _id: id },
       {
         model: model,
         ram: ram,
-        videoMemory: videoMemory,
+        graphicCard: graphicCard,
         memory: memory,
         processor: processor,
       },
@@ -76,7 +76,7 @@ const ComputerController = {
         res.json({
           model: model,
           ram: ram,
-          videoMemory: videoMemory,
+          graphicCard: graphicCard,
           memory: memory,
           processor: processor,
         });
