@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import SessionController from './controllers/UserController';
+import CompController from './controllers/ComputerController';
 const routes = Router();
 
 /**
@@ -9,5 +10,13 @@ routes.post('/users', SessionController.store);
 routes.get('/users', SessionController.index);
 routes.put('/users/:id', SessionController.update);
 routes.delete('/users/:id', SessionController.delete);
+
+/**
+ * Computer CRUD
+ */
+routes.post('/computers', CompController.store);
+routes.get('/computers', CompController.index);
+routes.put('/computers/:id', CompController.update);
+routes.delete('/computers/:id', CompController.delete);
 
 export default routes;
