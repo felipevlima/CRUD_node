@@ -4,17 +4,19 @@ import mongoose from 'mongoose';
 import Routes from './routes';
 
 const app = express();
-const uri: string = 'mongodb://127.0.0.1:27017/local';
+const uri: string =
+  'mongodb+srv://felipevieira:felipe9897@faculdade.xjync.mongodb.net/crud?retryWrites=true&w=majority';
 
 app.use(cors());
 app.use(express.json());
 
 app.use(Routes);
 
-// mongoose.connect(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 
 app.listen(3333, () => {
   console.log('🚀 Server running on port 3333');
