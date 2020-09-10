@@ -19,7 +19,7 @@ const UserController = {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation fails' });
+      return res.status(400).json({ error: 'Validation error' });
     }
 
     const { name, email, cellphone, age, cep } = req.body;
@@ -37,7 +37,7 @@ const UserController = {
     const { id } = req.params;
 
     await User.findByIdAndRemove({ _id: id }, (err, user) => {
-      res.json({ message: 'User success removed' });
+      res.json({ message: 'User successfully removed' });
     });
   },
 
@@ -51,7 +51,7 @@ const UserController = {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation fails' });
+      return res.status(400).json({ error: 'Validation error' });
     }
 
     const { id } = req.params;
