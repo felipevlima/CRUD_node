@@ -18,9 +18,7 @@ const UserController = {
       cep: Yup.number().required(),
     });
 
-    if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation error' });
-    }
+    if (!(await schema.isValid(req.body))) return res.status(400).json({ error: 'Validation error' });
 
     const { name, email, cellphone, age, cep } = req.body;
 
@@ -50,9 +48,7 @@ const UserController = {
       cep: Yup.number().required(),
     });
 
-    if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation error' });
-    }
+    if (!(await schema.isValid(req.body))) return res.status(400).json({ error: 'Validation error' });
 
     const { id } = req.params;
     const { name, email, cellphone, age, cep } = req.body;
